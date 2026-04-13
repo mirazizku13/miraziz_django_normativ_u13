@@ -18,32 +18,22 @@ def game_create_from(request):
     return render(request, 'games/create.html')
 
 def game_create(request):
-    if request.method == "POST":
         form = GameModelForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('game_list')
-    else:
-        form = GameModelForm()
-
-    return render(request, 'games/create.html', {'form': form})
+        return render(request, 'games/create.html', {'form': form})
 
 def game_update_from(request, pk=None):
     game = Game.objects.filter(pk=pk).first()
     return render(request, 'games/update.html', {'game': game})
 
 def game_update(request, pk):
-    game = get_object_or_404(Game, pk=pk)
-
-    if request.method == 'POST':
         form = GameModelForm(request.POST, instance=game)
         if form.is_valid():
             form.save()
             return redirect('game_list')
-    else:
-        form = GameModelForm(instance=game)
-
-    return render(request, 'games/update.html', {'form': form})
+        return render(request, 'games/update.html', {'form': form})
 
 def game_delete(request, pk=None):
     Game.objects.filter(id=pk).delete()
