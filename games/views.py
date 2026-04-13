@@ -1,13 +1,20 @@
 from urllib import request
 
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Game
 from .forms import GameModelForm
 
 def game_list(request):
-    games = Game.objects.all()  # Barcha Productlarni oladi
-    return render(request, 'games/list.html', {'games': games})
+    search = request.GET.get('search', '')
+    page = request.GET.get('page')
+    games = Game.objects.all()
+    if search:
+        games = games.filter(title__icontains=search)
+    paginator = Paginator(games, 3)
+    games = paginator.get_page(page)
+    return render(request, 'games/list.html', {'games': games, 'search': search})
 
 def game_detail(request, pk):
     game = Game.objects.get(pk=pk)
@@ -15,7 +22,7 @@ def game_detail(request, pk):
 
 def game_create_from(request):
     form = GameModelForm()
-    return render(request, 'games/create.html')
+    return render(request, 'games/create.html', {'form': form})
 
 def game_create(request):
         form = GameModelForm(request.POST)

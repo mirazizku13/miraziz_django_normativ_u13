@@ -27,7 +27,8 @@
                 </li>
             </ul>
             <form class="d-flex" method="get" action="{% url 'game_list' %}">
-                <input class="form-control me-2" type="search" placeholder="Search games..." name="q" value="{{ request.GET.q }}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search"
+                       value={{ search }}>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -38,7 +39,48 @@
     {% block main %}
     {% endblock %}
 </div>
+<nav aria-label="page">
+  <ul class="pagination">
+<!--      preveus-->
+    {% if games.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?search={{ search }}&page={{ games.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+    {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+    {% endif %}
 
+<!--    {% for game in games %}-->
+<!--        {% if games.number == game.number%}-->
+<!--            <li class="page-item active"><a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a></li>-->
+<!--        {% else %}-->
+<!--            <li class="page-item disabled"><a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a></li>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+
+
+    {% for game in games.paginator %}
+        {% if games.number == game %}
+            <li class="page-item active">
+                <a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a>
+            </li>
+        {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+
+    {% if games.has_next %}
+        <li class="page-item"><a class="page-link" href="?search={{ search }}&page={{ games.next_page_number }}">Next</a></li>
+    {% else %}
+        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
 <footer class="footer">
     <p> 2024 Game Shop. All rights reserved.</p>
 </footer>
