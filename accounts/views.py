@@ -38,5 +38,5 @@ def profile(request):
         form = User_profileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('game_list')
+            return redirect('games:game_list')
         return render(request, 'accounts/profile.html', {'form': form})

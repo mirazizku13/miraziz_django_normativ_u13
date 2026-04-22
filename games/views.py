@@ -1,14 +1,22 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from .models import Game
+from accounts.models import UserRole
+from accounts.utils import login_required_custom, is_poster, is_moderator
+from .models import Game, Status
 from .forms import GameModelForm
 
 
 def game_list(request):
-    games = Game.objects.all()
     search = request.GET.get('search','')
     page = request.GET.get('page')
+    games = Game.objects.all()
+    if request.user.is_authenticated and request.user.role == UserRole.Poster:
+        games = games.filter(created_by=request.user)
+    elif request.user.is_authenticated and request.user.role == UserRole.Moderator:
+        games = games.filter(status=Status.DRAFT)
+    else:
+        games = games.filter(status=Status.PUBLISHED)
     if search:
         games = games.filter(title__icontains=search)
 
@@ -20,7 +28,7 @@ def game_detail(request, id):
     game = get_object_or_404(Game, id=id)
     return render(request, 'games/game_detail.html', {'game': game})
 
-
+@is_poster
 def game_create(request):
     if request.method == 'POST':
         form = GameModelForm(request.POST)
@@ -31,7 +39,7 @@ def game_create(request):
         form = GameModelForm()
     return render(request, 'games/game_form.html', {'form': form})
 
-
+@is_poster
 def game_update(request, id):
     game = get_object_or_404(Game, id=id)
     if request.method == 'POST':
@@ -42,10 +50,17 @@ def game_update(request, id):
     else:
         form = GameModelForm(instance=game)
     return render(request, 'games/game_form.html', {'form': form})
-
+@is_poster
 def game_delete(request, id):
     game = get_object_or_404(Game, id=id)
     if request.method == 'POST':
         game.delete()
         return redirect('games:game_list')
     return render(request, 'games/game_confirm_delete.html', {'game': game})
+
+@is_moderator
+def game_published(request, pk=None):
+    game = Game.objects.filter(id=pk).first()
+    game.status = Status.PUBLISHED
+    game.save()
+    return redirect('games:game_list')
