@@ -20,23 +20,35 @@ def game_list(request):
     if search:
         games = games.filter(title__icontains=search)
 
-    paginator = Paginator(games, 3)
+    paginator = Paginator(games, 5)
     games = paginator.get_page(page)
-    return render(request, 'games/game_list.html', {'games': games, 'search': search, 'page': page})
+    return render(request, 'games/game_list.html', {'games': games, 'search': search, 'page': page, 'UserRole': UserRole})
 
 def game_detail(request, id):
     game = get_object_or_404(Game, id=id)
-    return render(request, 'games/game_detail.html', {'game': game})
+    return render(request, 'games/game_detail.html', {'game': game, 'UserRole': UserRole})
+
+# @is_poster
+# def game_create(request):
+#     if request.method == 'POST':
+#         form = GameModelForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('games:game_list')
+#     else:
+#         form = GameModelForm()
+#     return render(request, 'games/game_form.html', {'form': form})
+
 
 @is_poster
 def game_create(request):
-    if request.method == 'POST':
-        form = GameModelForm(request.POST)
+    form = GameModelForm(request.POST or None)
+    if request.method == "POST":
         if form.is_valid():
-            form.save()
+            game = form.save(commit=False)
+            game.created_by = request.user
+            game.save()
             return redirect('games:game_list')
-    else:
-        form = GameModelForm()
     return render(request, 'games/game_form.html', {'form': form})
 
 @is_poster
@@ -58,9 +70,16 @@ def game_delete(request, id):
         return redirect('games:game_list')
     return render(request, 'games/game_confirm_delete.html', {'game': game})
 
+# @is_moderator
+# def game_published(request, pk=None):
+#     game = Game.objects.filter(id=pk).first()
+#     game.status = Status.PUBLISHED
+#     game.save()
+#     return redirect('games:game_list')
+
 @is_moderator
-def game_published(request, pk=None):
-    game = Game.objects.filter(id=pk).first()
+def game_published(request, pk):
+    game = get_object_or_404(Game, pk=pk)
     game.status = Status.PUBLISHED
     game.save()
     return redirect('games:game_list')

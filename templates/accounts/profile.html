@@ -10,6 +10,8 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
+            <p>USER: {{ request.user }}</p>
+            <p>ROLE: {{ request.user.role }}</p>
             <button>Save change</button>
         </form>
 

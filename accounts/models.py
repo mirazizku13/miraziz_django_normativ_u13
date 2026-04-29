@@ -14,8 +14,8 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=11, blank=True)
     email = models.EmailField(max_length=254, unique=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = ['username']
     class Meta:
         db_table = 'users'
 
