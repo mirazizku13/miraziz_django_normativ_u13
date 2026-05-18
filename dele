@@ -1,0 +1,2 @@
+2026-05-04 18:41:31,860 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-04 18:41:52,595 - django.utils.autoreload - INFO - C:\Users\user\PycharmProjects\django_u13_normativ\games\signals.py changed, reloading.

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.shortcuts import render
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 
 def home(request):
@@ -26,5 +28,12 @@ urlpatterns = [
     path('games/', include('games.urls')),
     path('products/', include('product.urls')),
     path('accounts/', include('accounts.urls')),
+    path('files/', include('files.urls')),
     path('', home),
 ]
+
+if settings.DEBUG:
+    urlpatterns +=static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )

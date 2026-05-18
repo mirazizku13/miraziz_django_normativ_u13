@@ -1,0 +1,18 @@
+[33m1422ec3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnews[m[33m, [m[1;31morigin/news[m[33m)[m HEAD@{0}: checkout: moving from news2 to news
+[33ma3b411e[m[33m ([m[1;31morigin/news2[m[33m, [m[1;32mnews2[m[33m)[m HEAD@{1}: checkout: moving from news to news2
+[33m1422ec3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnews[m[33m, [m[1;31morigin/news[m[33m)[m HEAD@{2}: commit: 6-normativ tugallandi
+[33ma3b411e[m[33m ([m[1;31morigin/news2[m[33m, [m[1;32mnews2[m[33m)[m HEAD@{3}: commit: 5-normativ fail1
+[33m1ead150[m HEAD@{4}: checkout: moving from 1ead1502b456cd4121f8b5b62ec865841794c041 to news
+[33m1ead150[m HEAD@{5}: checkout: moving from main to 1ead150
+[33md05ac32[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mbackup[m[33m)[m HEAD@{6}: reset: moving to d05ac32
+[33md05ac32[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mbackup[m[33m)[m HEAD@{7}: checkout: moving from backup to main
+[33md05ac32[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mbackup[m[33m)[m HEAD@{8}: checkout: moving from main to backup
+[33md05ac32[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mbackup[m[33m)[m HEAD@{9}: pull origin main --rebase (finish): returning to refs/heads/main
+[33md05ac32[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mbackup[m[33m)[m HEAD@{10}: pull origin main --rebase (start): checkout d05ac3246f601a3e5b41d06640a3d3464f132d3c
+[33m1ead150[m HEAD@{11}: commit: 5-normativ
+[33m7a031fa[m HEAD@{12}: commit: 4-normativ search and paginator
+[33m37ecf1b[m HEAD@{13}: commit: 3-normativ
+[33m8596011[m HEAD@{14}: commit: 2-normativ
+[33m2a4b8f6[m HEAD@{15}: Branch: renamed refs/heads/master to refs/heads/main
+[33m2a4b8f6[m HEAD@{17}: commit: 1-normativ
+[33m7c15a66[m HEAD@{18}: commit (initial): 1-normativ

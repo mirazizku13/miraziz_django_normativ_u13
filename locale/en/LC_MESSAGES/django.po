@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-15 18:02+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\config\settings.py:140
+msgid "English"
+msgstr "English"
+
+#: .\config\settings.py:141
+msgid "O'zbekcha"
+msgstr "Uzbek"
+
+#: .\config\settings.py:142
+msgid "Русский"
+msgstr "Russian"
+
+#: .\games\models.py:27
+msgid "Title"
+msgstr "Title"
+
+#: .\games\models.py:28
+msgid "Genre"
+msgstr "Genre"
+
+#: .\games\models.py:29
+msgid "Price"
+msgstr "Price"
+
+#: .\games\models.py:30
+msgid "Status"
+msgstr "Status"
+
+#: .\games\models.py:31
+msgid "Created by"
+msgstr "Created by"
+
+#: .\templates\base.html:17
+msgid "Game Shop"
+msgstr "Game Shop"
+
+#: .\templates\base.html:35
+msgid "Logout"
+msgstr "Logout"
+
+#: .\templates\base.html:39
+msgid "Profile"
+msgstr "Profile"
+
+#: .\templates\base.html:44
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\base.html:47
+msgid "Register"
+msgstr "Register"
+
+#: .\templates\base.html:58
+msgid "O'zgartir"
+msgstr "Edit"
+
+#: .\templates\base.html:62
+msgid "Search"
+msgstr "Search"
+
+#: .\templates\games\game_create.html:10
+msgid "Yangi O'yin Qo'shish"
+msgstr "Add New Game"
+
+#: .\templates\games\game_create.html:31
+msgid "Saqlash"
+msgstr "Save"
+
+#: .\templates\games\game_create.html:32
+msgid "Bekor qilish"
+msgstr "Cancel"
+
+#: .\templates\games\game_detail.html:11 .\templates\games\game_list.html:20
+msgid "Janr"
+msgstr "Title"
+
+#: .\templates\games\game_detail.html:12
+#, fuzzy
+#| msgid "Status"
+msgid "status Status"
+msgstr "Status"
+
+#: .\templates\games\game_detail.html:13 .\templates\games\game_list.html:21
+msgid "Narxi"
+msgstr "Price"
+
+#: .\templates\games\game_detail.html:14 .\templates\games\game_list.html:22
+msgid "Yaratilgan sana"
+msgstr "Created date"
+
+#: .\templates\games\game_detail.html:15
+msgid "Yangilangan sana"
+msgstr "Updated date"
+
+#: .\templates\games\game_detail.html:18
+msgid "Ortga"
+msgstr "Back"
+
+#: .\templates\games\game_detail.html:20 .\templates\games\game_list.html:27
+msgid "Tahrirlash"
+msgstr "Edit"
+
+#: .\templates\games\game_detail.html:21 .\templates\games\game_list.html:28
+msgid "O'chirish"
+msgstr "Delete"
+
+#: .\templates\games\game_list.html:9
+msgid "O'yinlar Ro'yxati"
+msgstr "Game List"
+
+#: .\templates\games\game_list.html:11
+msgid "Yangi o'yin qo'shish"
+msgstr "Add Game"
+
+#: .\templates\games\game_list.html:25
+msgid "Batafsil"
+msgstr "Details"
+
+#: .\templates\games\game_list.html:36
+msgid "Hozircha hech qanday o'yin mavjud emas. Yangi o'yin qo'shing!"
+msgstr "No games available yet. Add a new one!"
+
+#: .\templates\games\game_list.html:47 .\templates\games\game_list.html:51
+msgid "Previous"
+msgstr "Previous"
+
+#: .\templates\games\game_list.html:78 .\templates\games\game_list.html:80
+msgid "Next"
+msgstr "Next"
+
+#: .\templates\games\send_masage.html:157
+msgid "Yangi xabar"
+msgstr "New Message"
+
+#: .\templates\games\send_masage.html:167
+msgid "Kimga"
+msgstr "To"
+
+#: .\templates\games\send_masage.html:172
+msgid "Mavzu"
+msgstr "Subject"
+
+#: .\templates\games\send_masage.html:178
+msgid "Email matnini yozing..."
+msgstr "Write email content..."
+
+#: .\templates\games\send_masage.html:184
+msgid "Yuborish"
+msgstr "Send"
+
+#, fuzzy
+#~| msgid "Created by"
+#~ msgid "created at"
+#~ msgstr "Created by"
